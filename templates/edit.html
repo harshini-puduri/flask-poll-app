@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head><title>Edit Poll</title></head>
+<body>
+  <h2>Edit Poll</h2>
+  <form action="/edit/{{ poll_id }}" method="post">
+    <input type="hidden" name="_method" value="PUT">
+    <label>Question:</label><br>
+    <input type="text" name="question" value="{{ poll.question }}"><br><br>
+
+    <label>Options:</label><br>
+    {% for opt in poll.options %}
+      <input type="text" name="option" value="{{ opt }}"><br>
+    {% endfor %}
+    <br>
+    <input type="submit" value="Update Poll">
+  </form>
+</body>
+</html>

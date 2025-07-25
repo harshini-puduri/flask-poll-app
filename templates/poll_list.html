@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Hi! Feel free to look at the available polls and contact 123-772-2342 for any help.</title></head>
+    <body>
+        <h2>Available Polls:</h2>
+        <ul>
+            {% for poll in polls %}
+            <li>
+                <strong>{{ poll.question }}</strong> <br>
+                <a href="/vote/{{poll.id}}">Vote</a> |
+                <a href="/results/{{poll.id}}">Results</a>
+                <form action="/edit/{{ poll.id }}" method="post" style="display:inline">
+                    <input type="hidden" name="_method" value="PUT">
+                    <input type="submit" value="Edit">
+                </form>
+
+                <form action="/delete/{{ poll.id }}" method="post" style="display:inline">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input type="submit" value="Delete">
+                </form>
+
+            </li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>

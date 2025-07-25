@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head><title>Vote</title></head>
+<body>
+  <h2>{{ poll.question }}</h2>
+  <form method="post">
+    {% for option in poll.options %}
+      <input type="radio" name="option" value="{{ loop.index0 }}" required> {{ option }}<br>
+    {% endfor %}
+    <br>
+    <input type="submit" value="Submit Vote">
+  </form>
+</body>
+</html>

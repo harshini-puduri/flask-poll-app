@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head><title>Results</title></head>
+<body>
+  <h2>📊 Results: {{ poll.question }}</h2>
+  {% for option, count, percent in percentages %}
+    <p>
+      {% if loop.index0 == winner_index %}
+        🥇 <strong>{{ option }}</strong>
+      {% else %}
+        {{ option }}
+      {% endif %}: 
+      {{ percent }}% ({{ count }} votes)
+
+        <div style="background:#ddd; width:300px;">
+        <div style="background:#4CAF50; width: {{ percent }}%; padding:4px;"></div>
+      </div>
+    </p>
+  {% endfor %}
+</body>
+</html>
